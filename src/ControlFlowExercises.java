@@ -44,6 +44,30 @@ public class ControlFlowExercises {
                     numberSquared *= numberSquared;
                 }while(numberSquared < 1000000);
 
+    //        c.For
+
+    //        refactor the previous two exercises to use a for loop instead
+    //            1.a
+                    for(int ii = 5; ii <= 15; ii++){
+                        System.out.print(ii + " ");
+                    }
+                    System.out.format("%n");
+
+    //            1.b
+                    for(int countbyTwoo = 0; countbyTwoo <= 100; countbyTwoo += 2){
+                        System.out.println(countbyTwoo + " ");
+                    }
+
+                    for(int backwardsByFivee = 100; backwardsByFivee >= -10; backwardsByFivee -= 5){
+                        System.out.println(backwardsByFivee);
+                    }
+
+                    for(long numberSquaredd = 2; numberSquaredd < 1000000; numberSquaredd *= numberSquaredd){
+                        System.out.println(numberSquaredd);
+                    }
+
+
+
 
 
     }
