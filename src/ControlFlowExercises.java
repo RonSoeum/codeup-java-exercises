@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ControlFlowExercises {
 
     public static void main(String[] args){
@@ -16,10 +18,6 @@ public class ControlFlowExercises {
                     i++;
                 }
                 System.out.format("%n");
-
-    //        Your output should look like this:
-    //
-    //        5 6 7 8 9 10 11 12 13 14 15
 
     //        b.Do While
 
@@ -71,30 +69,8 @@ public class ControlFlowExercises {
 //        One of the most common interview questions for entry-level programmers is the FizzBuzz test. Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
 
 //            Write a program that prints the numbers from 1 to 100.
-//                for(int fizz = 1; fizz <= 100; fizz++){
-//                    System.out.println("fizz 1 to 100: " + fizz);
-//                }
-
-//            For multiples of three print “Fizz” instead of the number
-//                for(int fizz = 1; fizz <= 100; fizz++){
-//                    if(fizz % 3 == 0){
-//                        System.out.println("Fizz");
-//                    }else{
-//                        System.out.println(fizz);
-//                    }
-//                }
-
+//            For multiples of three print “Fizz” instead of the number.
 //            For the multiples of five print “Buzz”.
-//                for(int fizz = 1; fizz <= 100; fizz++){
-//                    if(fizz % 3 == 0){
-//                        System.out.println("Fizz");
-//                    }else if(fizz % 5 == 0){
-//                        System.out.println("Buzz");
-//                    }else{
-//                        System.out.println(fizz);
-//                    }
-//                }
-
 //            For numbers which are multiples of both three and five print “FizzBuzz”.
                 for(int fizz = 1; fizz <= 100; fizz++){
                     if(fizz % 3 == 0 && fizz % 5 == 0){
@@ -107,6 +83,33 @@ public class ControlFlowExercises {
                         System.out.println(fizz);
                     }
                 }
+
+//        3.Display a table of powers.
+            Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+
+//            Prompt the user to enter an integer.
+//            Display a table of squares and cubes from 1 to the value entered.
+//            Ask if the user wants to continue.
+//            Assume that the user will enter valid data.
+//            Only continue if the user agrees to.
+                String userConfirm;
+                do{
+                    System.out.println("Enter an integer for a table with powers of 2 and 3.");
+                    int intInput = scanner.nextInt();
+
+                    System.out.println("number | squared | cubed");
+                    System.out.println("------ | ------- | -----");
+
+                    for(int sqCu = 1; sqCu <= intInput; sqCu++){
+                        System.out.printf ("%d        %d        %d%n", sqCu, (sqCu * sqCu), (sqCu * sqCu * sqCu));
+                    }
+
+                    System.out.println("Do you want to continue the loop?");
+                    userConfirm = scanner.next();
+
+                }while(userConfirm.equalsIgnoreCase("yes") || userConfirm.equalsIgnoreCase("y"));
+
+
 
 
 
