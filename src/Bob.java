@@ -6,16 +6,21 @@ public class Bob {
 
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
-        String sure = "Sure";
+        String sure = "Sure.";
         String whoa = "Whoa, chill out!";
         String fine = "Fine. Be that way!";
         String what = "Whatever";
+        String userInput;
+        boolean endBob = false;
 
         do{
-            System.out.println("Talk to Bob: ");
-            String userInput = scanner.next();
+            System.out.println("Talk to Bob:");
+            userInput = scanner.next();
 
-            if (userInput.endsWith("?")) {
+            if(userInput.equalsIgnoreCase("run")) {
+                System.out.println("You ran away from Bob.");
+                endBob = (userInput.equalsIgnoreCase("run"));
+            } else if (userInput.endsWith("?")) {
                 System.out.println(sure);
             } else if (userInput.endsWith("!")) {
                 System.out.println(whoa);
@@ -24,7 +29,7 @@ public class Bob {
             } else {
                 System.out.println(what);
             }
-        }while(true);
+        }while(!endBob);
 
     }
 }
