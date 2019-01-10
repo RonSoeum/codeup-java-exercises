@@ -11,14 +11,14 @@ public class MethodsExercises {
 //        multiplication(25,6);
 //        division(81,4);
 //        modulus(200, 8040);
-//        multiplyWOSymbol(25, 5);
-//        multiplyWOSymbolPlusRecursion(2, 6);
+//        multiplyWOSymbol(10, -32);
+//        System.out.println(multiplyWOSymbolPlusRecursion(23, -5));
 
 //        getInteger(1,10);
 
-        factorial(1, 10);
+//        factorial(1, 10);
 //
-        dice();
+//        dice();
 
     }//main
 
@@ -54,61 +54,48 @@ public class MethodsExercises {
         return  result;
     }
 
-//    Bonus
+//    1.Bonus
 //
-//    Create your multiplication method without the * operator (Hint: a loop might be helpful).
+//    Create your multiplication method without the * operator.
 
     public static long multiplyWOSymbol(long a, long b){
+        long product = 0;
+
         if(a == 0 || b == 0){
             System.out.println(0);
             return 0;
         }
 
-        if(b >= 1) {
+        if(b > 1) {
             do {
-                a += a;
+                product += a;
                 b--;
             } while (b >= 1);
         }else{
             do {
-                a += a;
+                product -= a;
                 b++;
             } while (b <= -1);
         }
 
-        System.out.println(a);
-        return a;
+        System.out.println(product);
+        return product;
     }
 
 //    Do the above with recursion.
 
     public static long multiplyWOSymbolPlusRecursion(long a, long b){
-        if(a == 0 || b == 0){
-            System.out.println(0);
+        if(a == 0 || b == 0) {
             return 0;
         }
 
-        if(a == 1){
-            System.out.println(b);
-            return b;
-        }
-        if(b == 1){
-            return a;
-        }
-
-        if(b > 1) {
-            a += a;
+        if(b > 0) {
             b--;
-            return multiplyWOSymbolPlusRecursion(a, b);
+            return a + multiplyWOSymbolPlusRecursion(a, b);
+        } else {
+            System.out.println(a);
+            return -multiplyWOSymbolPlusRecursion(a, -b);
         }
-
-        if(b < -1) {
-            a += a;
-            b++;
-            return multiplyWOSymbolPlusRecursion(a, b);
-        }
-        System.out.println("a: " + a);
-        return 0;
     }
 
 //    2.User input is in a certain range
@@ -168,9 +155,18 @@ public class MethodsExercises {
 
 //    Other Methods
 
-    public static int getInt(int num){
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
-        return num;
+    public static int getInt(){
+        Scanner scan = new Scanner(System.in).useDelimiter("\n");
+        while(!scan.hasNextInt()) { //repeat until a number is entered.
+            scan.next();
+            System.out.println("Enter a number."); //Tell it's not a number.
+        }
+        return scan.nextInt(); //Get your number here
+    }
+
+    public static String getString(){
+        Scanner scan = new Scanner(System.in).useDelimiter("\n");
+        return scan.next();
     }
 
 }//class
