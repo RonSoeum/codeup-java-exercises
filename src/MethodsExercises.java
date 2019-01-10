@@ -1,20 +1,23 @@
-import java.util.*;
+import java.util.Random;
+import java.util.Scanner;
 
 public class MethodsExercises {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
-        addition(10, 2);
-        subtraction(3,40);
-        multiplication(25,6);
-        division(80,4);
-        modulus(400, 8040);
+//        addition(10, 2);
+//        subtraction(3,40);
+//        multiplication(25,6);
+//        division(81,4);
+//        modulus(200, 8040);
+//        multiplyWOSymbol(25, 5);
+//        multiplyWOSymbolPlusRecursion(2, 6);
 
 //        getInteger(1,10);
 
         factorial(1, 10);
-
+//
         dice();
 
     }//main
@@ -30,48 +33,102 @@ public class MethodsExercises {
     public static int subtraction(int num1, int num2){
         int result = num1 - num2;
         System.out.println(result);
-        return  num1 - num2;
+        return  result;
     }
 
     public static int multiplication(int num1, int num2){
         int result = num1 * num2;
         System.out.println(result);
-        return  num1 * num2;
+        return  result;
     }
 
-    public static int division(int num1, int num2){
-        int result = num1 / num2;
+    public static double division(double num1, double num2){
+        double result = num1 / num2;
         System.out.println(result);
-        return  num1 / num2;
+        return  result;
     }
 
     public static int modulus(int num1, int num2){
         int result = num1 % num2;
         System.out.println(result);
-        return  num1 / num2;
+        return  result;
+    }
+
+//    Bonus
+//
+//    Create your multiplication method without the * operator (Hint: a loop might be helpful).
+
+    public static long multiplyWOSymbol(long a, long b){
+        if(a == 0 || b == 0){
+            System.out.println(0);
+            return 0;
+        }
+
+        if(b >= 1) {
+            do {
+                a += a;
+                b--;
+            } while (b >= 1);
+        }else{
+            do {
+                a += a;
+                b++;
+            } while (b <= -1);
+        }
+
+        System.out.println(a);
+        return a;
+    }
+
+//    Do the above with recursion.
+
+    public static long multiplyWOSymbolPlusRecursion(long a, long b){
+        if(a == 0 || b == 0){
+            System.out.println(0);
+            return 0;
+        }
+
+        if(a == 1){
+            System.out.println(b);
+            return b;
+        }
+        if(b == 1){
+            return a;
+        }
+
+        if(b > 1) {
+            a += a;
+            b--;
+            return multiplyWOSymbolPlusRecursion(a, b);
+        }
+
+        if(b < -1) {
+            a += a;
+            b++;
+            return multiplyWOSymbolPlusRecursion(a, b);
+        }
+        System.out.println("a: " + a);
+        return 0;
     }
 
 //    2.User input is in a certain range
 
-    public static int getInteger(int min, int max){
+    public static void getInteger(int min, int max){
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
-        System.out.println("Enter a number between 1 and 10: ");
+        System.out.printf("Enter a number between %d and %d:%n", min, max);
         int userInput = scanner.nextInt();
         if(userInput >= min & userInput <= max){
             System.out.printf("Your number %d is within the range.%n", userInput);
         }else{
-            System.out.println("Enter a number between 1 and 10: ");
-            userInput = scanner.nextInt();
-            getInteger(1, 10);
+            getInteger(min, max);
         }
-        return userInput;
     }
 
 //    3.Calculate the factorial of a number.
 
     public static void factorial(int min, int max){
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
-        System.out.println("Enter a number between 1 and 10: ");
+        System.out.printf("Enter a number between %d and %d:%n", min, max);
         int userInput = scanner.nextInt();
         if(userInput >= min & userInput <= max){
             System.out.printf("Your number %d is within the range.%nHere is the factorial of your number.%n", userInput);
@@ -81,9 +138,7 @@ public class MethodsExercises {
                 System.out.println(fact);
             }
         }else{
-            System.out.println("Enter a number between 1 and 10: ");
-            userInput = scanner.nextInt();
-            factorial(1, 10);
+            factorial(min, max);
         }
     }
 
@@ -92,12 +147,11 @@ public class MethodsExercises {
     public static void dice() {
         Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         Random random = new Random();
-        System.out.println("Enter the number of sides for a pair of dice.");
-        int diceSides = scanner.nextInt();
-        System.out.println("Test your luck and Roll the dice: (yes/no)");
+        System.out.println("Do you want to roll the dice?");
         String rollDice = scanner.next();
         if (rollDice.equalsIgnoreCase("yes") || rollDice.equalsIgnoreCase("y")) {
-            int dice1, dice2;
+            System.out.println("Enter the number of sides for a pair of dice.");
+            int diceSides = scanner.nextInt(), dice1, dice2;
             do {
                 dice1 = random.nextInt(diceSides);
                 dice2 = random.nextInt(diceSides);
@@ -105,7 +159,18 @@ public class MethodsExercises {
                 System.out.println("Do you want to roll the dice again?");
                 rollDice = scanner.next();
             } while (rollDice.equalsIgnoreCase("yes") || rollDice.equalsIgnoreCase("y"));
+        }else if(rollDice.equalsIgnoreCase("no") || rollDice.equalsIgnoreCase("n")) {
+            System.out.println("Ok, you don't want to roll.");
+        }else{
+            dice();
         }
+    }
+
+//    Other Methods
+
+    public static int getInt(int num){
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+        return num;
     }
 
 }//class
