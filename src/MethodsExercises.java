@@ -16,9 +16,9 @@ public class MethodsExercises {
 
 //        getInteger(1,10);
 
-//        factorial(1, 10);
+        factorial(1, 10);
 //
-//        dice();
+        dice();
 
     }//main
 
@@ -114,9 +114,8 @@ public class MethodsExercises {
 //    3.Calculate the factorial of a number.
 
     public static void factorial(int min, int max){
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         System.out.printf("Enter a number between %d and %d:%n", min, max);
-        int userInput = scanner.nextInt();
+        int userInput = getInt(min, max);
         if(userInput >= min & userInput <= max){
             System.out.printf("Your number %d is within the range.%nHere is the factorial of your number.%n", userInput);
             int fact = 1;
@@ -155,11 +154,11 @@ public class MethodsExercises {
 
 //    Other Methods
 
-    public static int getInt(){
+    public static int getInt(int min, int max){
         Scanner scan = new Scanner(System.in).useDelimiter("\n");
         while(!scan.hasNextInt()) { //repeat until a number is entered.
             scan.next();
-            System.out.println("Enter a number."); //Tell it's not a number.
+            System.out.printf("Enter a number between %d and %d:%n", min, max); //Tell it's not a number.
         }
         return scan.nextInt(); //Get your number here
     }
