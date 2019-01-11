@@ -17,7 +17,7 @@ public class MethodsExercises {
 //        getInteger(1,10);
 
         factorial(1, 10);
-//
+
         dice();
 
     }//main
@@ -115,7 +115,7 @@ public class MethodsExercises {
 
     public static void factorial(int min, int max){
         System.out.printf("Enter a number between %d and %d:%n", min, max);
-        int userInput = getInt(min, max);
+        int userInput = getIntRange(min, max);
         if(userInput >= min & userInput <= max){
             System.out.printf("Your number %d is within the range.%nHere is the factorial of your number.%n", userInput);
             int fact = 1;
@@ -131,21 +131,28 @@ public class MethodsExercises {
 //    4.Create an application that simulates dice rolling.
 
     public static void dice() {
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+//        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         Random random = new Random();
         System.out.println("Do you want to roll the dice?");
-        String rollDice = scanner.next();
-        if (rollDice.equalsIgnoreCase("yes") || rollDice.equalsIgnoreCase("y")) {
+        String rollDice = getString();
+        if (rollDice.equalsIgnoreCase("yes")
+            || rollDice.equalsIgnoreCase("y")) {
             System.out.println("Enter the number of sides for a pair of dice.");
-            int diceSides = scanner.nextInt(), dice1, dice2;
+            int diceSides = getInt(), dice1, dice2;
             do {
                 dice1 = random.nextInt(diceSides);
                 dice2 = random.nextInt(diceSides);
                 System.out.printf("Dice 1 rolled for: %d%nDice 2 rolled for: %d%n%n", dice1, dice2);
                 System.out.println("Do you want to roll the dice again?");
-                rollDice = scanner.next();
-            } while (rollDice.equalsIgnoreCase("yes") || rollDice.equalsIgnoreCase("y"));
-        }else if(rollDice.equalsIgnoreCase("no") || rollDice.equalsIgnoreCase("n")) {
+                rollDice = getString();
+                if(rollDice.equalsIgnoreCase("no")
+                    || rollDice.equalsIgnoreCase("n")){
+                    System.out.println("Ok, you don't want to roll.");
+                }
+            } while (rollDice.equalsIgnoreCase("yes")
+                    || rollDice.equalsIgnoreCase("y"));
+        }else if(rollDice.equalsIgnoreCase("no")
+                || rollDice.equalsIgnoreCase("n")) {
             System.out.println("Ok, you don't want to roll.");
         }else{
             dice();
@@ -154,11 +161,20 @@ public class MethodsExercises {
 
 //    Other Methods
 
-    public static int getInt(int min, int max){
+    public static int getInt(){
         Scanner scan = new Scanner(System.in).useDelimiter("\n");
         while(!scan.hasNextInt()) { //repeat until a number is entered.
             scan.next();
-            System.out.printf("Enter a number between %d and %d:%n", min, max); //Tell it's not a number.
+            System.out.println("You did not enter an integer."); //Tell it's not a number.
+        }
+        return scan.nextInt(); //Get your number here
+    }
+
+    public static int getIntRange(int min, int max){
+        Scanner scan = new Scanner(System.in).useDelimiter("\n");
+        while(!scan.hasNextInt()) { //repeat until a number is entered.
+            scan.next();
+            System.out.printf("Enter an integer between %d and %d:%n", min, max); //Tell it's not a number.
         }
         return scan.nextInt(); //Get your number here
     }

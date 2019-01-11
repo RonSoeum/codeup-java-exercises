@@ -66,7 +66,7 @@ public class HighLow {
         Scanner scan = new Scanner(System.in).useDelimiter("\n");
         while(!scan.hasNextInt()) { //repeat until a number is entered.
             scan.next();
-            System.out.println("You did not enter a number between 1 and 100."); //Tell it's not a number.
+            System.out.println("You did not enter an integer between 1 and 100."); //Tell it's not a number.
         }
         return scan.nextInt(); //Get your number here
     }
