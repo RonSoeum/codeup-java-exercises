@@ -136,7 +136,7 @@ public class MethodsExercises {
         System.out.println("Do you want to roll the dice?");
         String rollDice = getString();
         if (rollDice.equalsIgnoreCase("yes")
-            || rollDice.equalsIgnoreCase("y")) {
+                || rollDice.equalsIgnoreCase("y")) {
             System.out.println("Enter the number of sides for a pair of dice.");
             int diceSides = getInt(), dice1, dice2;
             do {
@@ -146,7 +146,7 @@ public class MethodsExercises {
                 System.out.println("Do you want to roll the dice again?");
                 rollDice = getString();
                 if(rollDice.equalsIgnoreCase("no")
-                    || rollDice.equalsIgnoreCase("n")){
+                        || rollDice.equalsIgnoreCase("n")){
                     System.out.println("Ok, you don't want to roll.");
                 }
             } while (rollDice.equalsIgnoreCase("yes")
