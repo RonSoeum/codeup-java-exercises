@@ -9,7 +9,7 @@ public class Input {
     }
 
     public static boolean yesNo(){
-        System.out.println("Do you want to continue?");
+//        System.out.println("Do you want to continue?");
         String input = getString();
         if(input.equalsIgnoreCase("yes")
                 || input.equalsIgnoreCase("y")
@@ -17,10 +17,10 @@ public class Input {
                 || input.equalsIgnoreCase("n")){
             if(input.equalsIgnoreCase("yes")
                     || input.equalsIgnoreCase("y")){
-                System.out.println("true");
+//                System.out.println("true");
                 return true;
             }else{
-                System.out.println("false");
+//                System.out.println("false");
                 return false;
             }
         }else{
@@ -55,12 +55,13 @@ public class Input {
     }
 
     public static double getDouble(double min, double max){
-        System.out.printf("Enter a decimal number between %.2f and %.2f:%n", min, max);
+//        System.out.printf("Enter a decimal number between %.2f and %.2f:%n", min, max);
         double input = getDouble();
         if(input >= min & input <= max){
-            System.out.printf("Your number %.2f is within the range.%n", input);
+//            System.out.printf("Your number %.2f is within the range.%n", input);
             return input;
         }else{
+            System.out.println("Your input is outside the range.");
             return getDouble(min, max);
         }
     }
