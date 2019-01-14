@@ -21,19 +21,17 @@ public class Person {
 //        System.out.println(person1 == person2);//true
 
         // Exercise 2.c
-//        Person person1 = new Person("John");
-//        Person person2 = person1;
-//        System.out.println(person1.getName());// John\nJohn
-//        System.out.println(person2.getName());// John\nJohn
-//        person2.setName("Jane");
-//        System.out.println(person1.getName());// Jane\nJane
-//        System.out.println(person2.getName());// Jane\nJane
-
+        Person person1 = new Person("John");
+        Person person2 = person1;
+        System.out.println(person1.getName());// John\nJohn
+        System.out.println(person2.getName());// John\nJohn
+        person2.setName("Jane");
+        System.out.println(person1.getName());// Jane\nJane
+        System.out.println(person2.getName());// Jane\nJane
 
     }//main
 
-
-    private static String name;
+    private String name;
 
     // Person constructor
     public Person(String name){
@@ -55,19 +53,5 @@ public class Person {
     public void sayHello(){
         System.out.printf("Hello %s%n", name);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }//class
