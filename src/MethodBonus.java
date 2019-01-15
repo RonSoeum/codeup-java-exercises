@@ -21,6 +21,8 @@ public class MethodBonus {
 //        getTwentyPrimes();
 //        coinFlip();
 //        randomWalk(33);
+//        countOnes("1010100101");
+//        countZeros("001110011");
 
 
 
@@ -231,7 +233,7 @@ public class MethodBonus {
 
     public static String randomWalk(int num){
         String result = "";
-        String oneZero = "";
+        String oneZero;
         for(int i = 1; i <= num; i++){
             if(randomFiftyFifty() == 0){
                 oneZero = "0";
@@ -245,7 +247,25 @@ public class MethodBonus {
     }
 
     public static int countOnes(String input){
-        return 1;
+        int count = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '1') {
+                count++;
+            }
+        }
+        System.out.println(count);
+        return count;
+    }
+
+    public static int countZeros(String input){
+        int count = 0;
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) == '0') {
+                count++;
+            }
+        }
+        System.out.println(count);
+        return count;
     }
 
 }//class
