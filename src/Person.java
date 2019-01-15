@@ -34,17 +34,18 @@ public class Person {
     private String name;
 
     // Person constructor
+    // returns an object with typeOf Person
     public Person(String name){
         this.name = name;
     }
 
-    // returns the person's name
+    // Getter: returns the Person's name
     public String getName(){
         System.out.println(name);
         return name;
     }
 
-    // changes the name property to the passed value
+    // Setter: changes the name property to the passed value
     public void setName(String name){
         this.name = name;
     }
@@ -55,3 +56,4 @@ public class Person {
     }
 
 }//class
+// added class examples

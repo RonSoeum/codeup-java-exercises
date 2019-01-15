@@ -3,67 +3,82 @@ import java.util.Scanner;
 
 public class Input {
 
-    private static String getString(){
-        Scanner scan = new Scanner(System.in).useDelimiter("\n");
-        return scan.next();
+    Scanner scanner;
+
+    // Input constructor
+    public Input(){
+        scanner = new Scanner(System.in).useDelimiter("\n");
     }
 
-    public static boolean yesNo(){
-//        System.out.println("Do you want to continue?");
+    public boolean yesNo(){
         String input = getString();
         if(input.equalsIgnoreCase("yes")
                 || input.equalsIgnoreCase("y")
                 || input.equalsIgnoreCase("no")
                 || input.equalsIgnoreCase("n")){
-            if(input.equalsIgnoreCase("yes")
-                    || input.equalsIgnoreCase("y")){
-//                System.out.println("true");
-                return true;
-            }else{
-//                System.out.println("false");
-                return false;
-            }
+            return input.equalsIgnoreCase("yes")
+                    || input.equalsIgnoreCase("y");
         }else{
             System.out.println("Enter \"yes\" or \"no\" :");
             return yesNo();
         }
     }
 
-    //==============================================================================
+    public boolean yesNo(String prompt){
+        System.out.println(prompt);
+        return yesNo();
+    }
 
-    private static int getInt(){
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+    public int getInt(){
         return scanner.nextInt();
     }
 
-    public static int getInt(int min, int max){
-        System.out.printf("Enter an integer number between %d and %d:%n", min, max);
-        int input = getInt();
-        if(input >= min & input <= max){
-            System.out.printf("Your number %d is within the range.%n", input);
-            return input;
+    public int getInt(String prompt){
+        System.out.println(prompt);
+        return getInt();
+    }
+
+    public int getInt(int min, int max){
+        int userInput = getInt();
+        if(userInput >= min && userInput <= max){
+            return userInput;
         }else{
+            System.out.printf("Enter a number between %d and %d.%n", min, max);
             return getInt(min, max);
         }
     }
 
-    //==============================================================================
+    public String getString(){
+        return scanner.next();
+    }
 
-    private static double getDouble(){
-        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
+    public String getString(String prompt){
+        System.out.println(prompt);
+        return getString();
+    }
+
+    public double getDouble(){
         return scanner.nextDouble();
     }
 
-    public static double getDouble(double min, double max){
-//        System.out.printf("Enter a decimal number between %.2f and %.2f:%n", min, max);
-        double input = getDouble();
-        if(input >= min & input <= max){
-//            System.out.printf("Your number %.2f is within the range.%n", input);
-            return input;
+    public double getDouble(String prompt){
+        System.out.println(prompt);
+        return getDouble();
+    }
+
+    public double getDouble(double min, double max){
+        double userInput = getDouble();
+        if(userInput >= min & userInput <= max){
+            return userInput;
         }else{
-            System.out.println("Your input is outside the range.");
+            System.out.printf("Enter a number between %.2f and %.2f.%n", min, max);
             return getDouble(min, max);
         }
+    }
+
+    public double getDouble(double min, double max, String prompt){
+        System.out.println(prompt);
+        return getDouble(min, max);
     }
 
 }//class
