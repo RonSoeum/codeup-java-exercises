@@ -48,6 +48,11 @@ public class Input {
         }
     }
 
+    public int getInt(int min, int max, String prompt){
+        System.out.println(prompt);
+        return getInt(min, max);
+    }
+
     public String getString(){
         return scanner.next();
     }
