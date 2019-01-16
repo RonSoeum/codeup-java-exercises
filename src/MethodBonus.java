@@ -21,8 +21,10 @@ public class MethodBonus {
 //        getTwentyPrimes();
 //        coinFlip();
 //        randomWalk(33);
-//        countOnes("1010100101");
-//        countZeros("001110011");
+//        countOnes(randomWalk(45));
+//        countZeros(randomWalk(25));
+//        analyzeRandomWalk(randomWalk(23));
+        longestRun(randomWalk(45));
 
 
 
@@ -242,7 +244,7 @@ public class MethodBonus {
             }
             result = result + oneZero;
         }
-        System.out.println(result);
+        System.out.println("randomWalk: " + result);
         return result;
     }
 
@@ -253,7 +255,7 @@ public class MethodBonus {
                 count++;
             }
         }
-        System.out.println(count);
+        System.out.println("countOnes: " + count);
         return count;
     }
 
@@ -264,8 +266,32 @@ public class MethodBonus {
                 count++;
             }
         }
-        System.out.println(count);
+        System.out.println("countZeros: " + count);
         return count;
     }
+
+    public static void  analyzeRandomWalk(String input){
+        countZeros(input);
+        countOnes(input);
+    }
+
+    public static void longestRun(String input){
+        int currentConsecutiveZeros = 0;
+        int longestConsecutiveZeros = 0;
+
+
+
+        for(int i = 0 ; i < input.length(); i++){
+            if(input.charAt(i) == input.charAt(i + 1)){
+                currentConsecutiveZeros++;
+            }
+            if(currentConsecutiveZeros > longestConsecutiveZeros){
+                longestConsecutiveZeros = currentConsecutiveZeros;
+            }
+        }
+
+        System.out.println(longestConsecutiveZeros);
+
+    }// longestRun
 
 }//class
