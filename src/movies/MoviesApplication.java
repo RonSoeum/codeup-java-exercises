@@ -68,7 +68,7 @@ public class MoviesApplication {
     public static String animatedMovies(){
         String animatedMovies = "";
         for(Movie movie: findAll()){
-            if(movie.getMovieCategory() == "animated"){
+            if(movie.getMovieCategory().equalsIgnoreCase("animated")){
                 animatedMovies = animatedMovies + "\n" + movie.getMovieName();
             }
         }
@@ -78,7 +78,7 @@ public class MoviesApplication {
     public static String dramaMovies(){
         String dramaMovies = "";
         for(Movie movie: findAll()){
-            if(movie.getMovieCategory() == "drama"){
+            if(movie.getMovieCategory().equalsIgnoreCase("drama")){
                 dramaMovies = dramaMovies + "\n" + movie.getMovieName();
             }
         }
@@ -88,7 +88,7 @@ public class MoviesApplication {
     public static String horrorMovies(){
         String horrorMovies = "";
         for(Movie movie: findAll()){
-            if(movie.getMovieCategory() == "horror"){
+            if(movie.getMovieCategory().equalsIgnoreCase("horror")){
                 horrorMovies = horrorMovies + "\n" + movie.getMovieName();
             }
         }
@@ -98,7 +98,7 @@ public class MoviesApplication {
     public static String scifiMovies(){
         String scifiMovies = "";
         for(Movie movie: findAll()){
-            if(movie.getMovieCategory() == "scifi"){
+            if(movie.getMovieCategory().equalsIgnoreCase("scifi")){
                 scifiMovies = scifiMovies + "\n" + movie.getMovieName();
             }
         }
