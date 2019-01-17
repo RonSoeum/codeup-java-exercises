@@ -31,23 +31,13 @@ public class ShapesTest {
         Measurable myShape2;
 
         // Test your code by creating instances of both Square and Rectangle and assigning them to myShape so you can display the shape's area and circumference.
-        Quadrilateral square = new Square(41);
-        myShape1 = square;
+        myShape1 = new Square(41);
         System.out.println("Step 7 square area test: " + myShape1.getArea());
         System.out.println("Step 7 square perimeter test: " + myShape1.getPerimeter() + "\n");
 
-            // My Square Test
-            System.out.printf("My Square Area Test: %.2f%n", square.getArea());
-            System.out.printf("My Square Perimeter Test: %.2f%n%n%n", square.getPerimeter());
-
-        Quadrilateral rectangle = new Rectangle(34,45);
-        myShape2 = rectangle;
+        myShape2 = new Rectangle(34,45);
         System.out.println("Step 7 rectangle area test: " + myShape2.getArea());
         System.out.println("Step 7 rectangle perimeter test: " + myShape2.getPerimeter() + "\n");
-
-            // My Rectangle Test
-            System.out.printf("My Rectangle Area Test: %.2f%n", rectangle.getArea());
-            System.out.printf("My Rectangle Perimeter Test: %.2f%n%n%n", rectangle.getPerimeter());
 
         // 8.Answer the following questions:
 
