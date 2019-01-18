@@ -1,16 +1,22 @@
 package grades;
 
 import util.Input;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import static grades.Student.getGradeAverage;
 
 public class GradesApplication {
 
     public static void main(String[] args) {
 
+        Input input = new Input();
         HashMap<String, Student> students = new HashMap<>();
+
+        students.put("johnGithub", new Student("john"));                                        // class example
+        students.get("johnGithub").addGrade(100);
+        students.get("johnGithub").addGrade(90);
+        students.get("johnGithub").addGrade(80);
+        System.out.printf("Class Example - John Grade Avg: %.2f%n", students.get("johnGithub").getGradeAverage());    // class example
+
         Student ron = new Student("Ron");
         Student justin = new Student("Justin");
         Student ryan = new Student("Ryan");
@@ -32,61 +38,37 @@ public class GradesApplication {
         students.put("ryanGithub", ryan);
         students.put("sarahGithub", sarah);
 
+        String username = "";                       // class example
+        for(String user: students.keySet()){
+            username += "|" + user + "| ";
+        }
+        System.out.println("Class Example - " + username + "\n\n\n");               // class example
+
         System.out.println("Welcome!");
-        System.out.println("\nHere are the github usernames of our students: ?\n");
+        System.out.println("\nHere are the github usernames of our students:\n");
         for (Map.Entry<String, Student> entry : students.entrySet()) {
             System.out.printf("|%s| ", entry.getKey());
         }
+        System.out.println("\n");
 
         do {
+            String selected = input.getString("What student would you like to see more info on?");
 
-            System.out.println("\n\nWhat student would you like to see more info on?");
-
-            String selected = userSelectStudent();
-            String studentName = students.get(selected).getName();
-            ArrayList<Integer> studentGrade = students.get(selected).getGrades();
-
-            switch (selected) {
-                case "ronGithub":
-                    System.out.printf("Name: %s | Github Username: %s%n", studentName, selected);
-                    System.out.printf("Current Average: %.2f%n%n", getGradeAverage(studentGrade));
-                    break;
-                case "justinGithub":
-                    System.out.printf("Name: %s | Github Username: %s%n", studentName, selected);
-                    System.out.printf("Current Average: %.2f%n%n", getGradeAverage(studentGrade));
-                    break;
-                case "ryanGithub":
-                    System.out.printf("Name: %s | Github Username: %s%n", studentName, selected);
-                    System.out.printf("Current Average: %.2f%n%n", getGradeAverage(studentGrade));
-                    break;
-                case "sarahGithub":
-                    System.out.printf("Name: %s | Github Username: %s%n", studentName, selected);
-                    System.out.printf("Current Average: %.2f%n%n", getGradeAverage(studentGrade));
-                    break;
+            while(!students.containsKey(selected)){
+                selected = input.getString("No users with that username were found:");
             }
 
+            String studentName = students.get(selected).getName();
+            double studentGrade = students.get(selected).getGradeAverage();
+
+            if(students.containsKey(selected)){
+                System.out.printf("Name: %s | Github Username: %s%n", studentName, selected);
+                System.out.printf("Current Average: %.2f%n%n", studentGrade);
+            }
         }while(input.yesNo("Would you like to see another student?"));
 
         System.out.println("Exiting application...");
 
     }// main
-
-    static Input input = new Input();
-
-    static String userSelectStudent(){
-        String userSelectStudent = input.getString();
-
-        if(userSelectStudent.equals("ronGithub")
-                || userSelectStudent.equals("justinGithub")
-                || userSelectStudent.equals("ryanGithub")
-                || userSelectStudent.equals("sarahGithub")){
-
-            return userSelectStudent;
-
-        }else{
-            System.out.println("No users with that username were found:");
-            return userSelectStudent();
-        }
-    }// userSelectStudent
 
 }// class

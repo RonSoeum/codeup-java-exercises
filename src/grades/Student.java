@@ -17,7 +17,7 @@ public class Student {
 
         System.out.println("grades : " + ron.grades);
 
-        System.out.println("average grade : " + getGradeAverage(ron.grades));
+        System.out.println("average grade : " + ron.getGradeAverage());
 
 
     }// main
@@ -27,7 +27,7 @@ public class Student {
 
     public Student(String name) {
         this.name = name;
-        grades = new ArrayList<Integer>();
+        this.grades = new ArrayList<Integer>(); // change grades to this.grades
     }
 
     public String getName() {
@@ -42,12 +42,12 @@ public class Student {
         grades.add(grade);
     }
 
-    public static double getGradeAverage(ArrayList<Integer> array){
-        double a = 0;
-        for(double b: array){
-            a += b;
+    public double getGradeAverage(){ // refactor with class example
+        double total = 0;
+        for(double element: grades){
+            total += element;
         }
-        return a / array.size();
+        return total / grades.size();
     }
 
 }// class
