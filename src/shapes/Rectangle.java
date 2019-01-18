@@ -6,17 +6,17 @@ public class Rectangle extends Quadrilateral implements Measurable{
     // 1.Remove the code from the body of your Rectangle and Square classes.
 
     // constructor
-    Rectangle(int length, int width) {
+    public Rectangle(double length, double width) {
         super(length, width);
     }
 
     @Override// implement Quadrilateral
-    void setLength(int length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
     @Override// implement Quadrilateral
-    void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
@@ -29,6 +29,5 @@ public class Rectangle extends Quadrilateral implements Measurable{
     public double getArea() {
         return length * width;
     }
-
 
 }// class

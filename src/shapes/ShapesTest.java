@@ -27,6 +27,7 @@ public class ShapesTest {
      // 7.Modify your ShapesTest class, use it to:
 
         // declare a variable of the type Measurable named myShape.
+        // Measurable myShape = new Square(4); // polymorphism
         Measurable myShape1;
         Measurable myShape2;
 
@@ -51,7 +52,7 @@ public class ShapesTest {
         System.out.println("Step 10 Rectangle Test:\ngetLength - "
                 + ((Quadrilateral) myShape2).getLength() + "\ngetWidth - "
                 + ((Quadrilateral) myShape2).getWidth());
-        // It returns the length and width.
+        // It returns the length and width. myShape inherited the getLength and getWidth methods from the Quadrilateral class.
 
     }// main
 
