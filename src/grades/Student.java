@@ -34,6 +34,10 @@ public class Student {
         return name;
     }
 
+    public ArrayList<Integer> getGrades() {
+        return grades;
+    }
+
     public void addGrade(int grade){
         grades.add(grade);
     }
