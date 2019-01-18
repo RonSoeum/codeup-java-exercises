@@ -275,22 +275,44 @@ public class MethodBonus {
         countOnes(input);
     }
 
-    public static void longestRun(String input){
-        int currentConsecutiveZeros = 0;
-        int longestConsecutiveZeros = 0;
+    public static int longestRun(String input){
+        int currentConsecutiveZeros = 1;
+        int longestConsecutiveZeros = 1;
+        int currentConsecutiveOnes = 1;
+        int longestConsecutiveOnes = 1;
 
-
-
-        for(int i = 0 ; i < input.length(); i++){
-            if(input.charAt(i) == input.charAt(i + 1)){
+        for(int index = 0;  index < input.length(); index++) {
+            if(index == input.length() - 1) {
+                break;
+            }else if(input.charAt(index) == input.charAt(index + 1) && input.charAt(index) == '0'){
                 currentConsecutiveZeros++;
+            }else{
+                currentConsecutiveZeros = 1;
             }
             if(currentConsecutiveZeros > longestConsecutiveZeros){
                 longestConsecutiveZeros = currentConsecutiveZeros;
             }
-        }
 
-        System.out.println(longestConsecutiveZeros);
+            if(input.charAt(index) == input.charAt(index + 1) && input.charAt(index) == '1'){
+                currentConsecutiveOnes++;
+            }else{
+                currentConsecutiveOnes = 1;
+            }
+            if(currentConsecutiveOnes > longestConsecutiveOnes){
+                longestConsecutiveOnes = currentConsecutiveOnes;
+            }
+        }// for loop
+
+        if(longestConsecutiveZeros > longestConsecutiveOnes){
+            System.out.printf("Longest consecutive Zeros: %d%n", longestConsecutiveZeros);
+            return longestConsecutiveZeros;
+        }else if(longestConsecutiveOnes > longestConsecutiveZeros){
+            System.out.printf("Longest consecutive Ones: %d%n", longestConsecutiveOnes);
+            return longestConsecutiveOnes;
+        }else{
+            System.out.printf("Longest consecutive zeros are equal to longest consecutive ones: %d%n", longestConsecutiveZeros);
+            return longestConsecutiveZeros;
+        }
 
     }// longestRun
 
