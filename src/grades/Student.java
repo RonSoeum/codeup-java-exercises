@@ -6,7 +6,6 @@ public class Student {
     public static void main(String[] args) {
 
         Student ron = new Student("Ron");
-
         System.out.println("name: " + ron.getName());
 
         ron.addGrade(89);
@@ -16,9 +15,7 @@ public class Student {
         ron.addGrade(55);
 
         System.out.println("grades : " + ron.grades);
-
         System.out.println("average grade : " + ron.getGradeAverage());
-
 
     }// main
 
@@ -27,7 +24,7 @@ public class Student {
 
     public Student(String name) {
         this.name = name;
-        this.grades = new ArrayList<Integer>(); // change grades to this.grades
+        this.grades = new ArrayList<Integer>();
     }
 
     public String getName() {
@@ -42,7 +39,7 @@ public class Student {
         grades.add(grade);
     }
 
-    public double getGradeAverage(){ // refactor with class example
+    public double getGradeAverage(){
         double total = 0;
         for(double element: grades){
             total += element;
