@@ -55,8 +55,8 @@ public class InputTest {
 
 
         // Codeup Java Exceptions and Error Handling
-//        System.out.println(input.getInt("enter int"));
-//        System.out.println(input.getDouble("enter double"));
+        System.out.println(input.getInt("enter int"));
+        System.out.println(input.getDouble("enter double"));
 
         // Bonus
             // getBinary
