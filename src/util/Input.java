@@ -67,6 +67,10 @@ public class Input {
     }
 
     public double getDouble(){
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Enter a double: ");
+            scanner.next();
+        }
         return scanner.nextDouble();
     }
 
@@ -89,5 +93,36 @@ public class Input {
         System.out.println(prompt);
         return getDouble(min, max);
     }
+
+    public long getBinary(String prompt){
+        System.out.println(prompt);
+        return getBinary();
+    }
+
+    public long getBinary(){
+        while (!scanner.hasNextLong(2)) {
+            System.out.println("Enter an binary: ");
+            scanner.next();
+        }
+        String binary = scanner.next();
+        return Integer.parseInt(binary,2);
+    }
+
+    public long getHex(String prompt){
+        System.out.println(prompt);
+        return getHex();
+    }
+
+    public long getHex(){
+        while (!scanner.hasNextLong(16)) {
+            System.out.println("Enter an hexidecimal: ");
+            scanner.next();
+        }
+        String hexidecimal = scanner.next();
+        return Long.parseLong(hexidecimal, 16);
+    }
+
+
+
 
 }//class
